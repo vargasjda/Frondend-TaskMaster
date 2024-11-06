@@ -9,7 +9,7 @@ const TaskBoard = ({ tasks, setTasks }) => {
 
   const fetchTasks = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/tasks', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/tasks`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       console.log("Tareas obtenidas desde la API:", response.data);
@@ -26,7 +26,7 @@ const TaskBoard = ({ tasks, setTasks }) => {
   // Función para añadir una nueva tarea
   const addTask = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/api/tasks', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/tasks`, {
         title: newTaskTitle,
         description: newTaskDescription,
         status: "pendiente" // Inicialmente añadimos la tarea como "pendiente"
@@ -45,7 +45,7 @@ const TaskBoard = ({ tasks, setTasks }) => {
   // Función para eliminar una tarea
   const deleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       setTasks(tasks.filter(task => task.id !== taskId));
@@ -64,7 +64,7 @@ const TaskBoard = ({ tasks, setTasks }) => {
     setTasks(updatedTasks);
 
     try {
-      await axios.put(`http://localhost:5000/api/tasks/${taskId}`, updatedTask, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/tasks/${taskId}`, updatedTask, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
       console.log("Tarea actualizada con éxito");

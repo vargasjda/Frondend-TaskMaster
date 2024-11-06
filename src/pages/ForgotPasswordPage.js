@@ -10,7 +10,7 @@ const ForgotPasswordPage = () => {
     setMessage(''); 
 
     try {
-      const response = await axios.post('http://localhost:5000/auth/forgot-password', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/auth/forgot-password`, {
         email,
       });
       setMessage(response.data.message);
