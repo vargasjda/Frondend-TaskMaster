@@ -22,6 +22,7 @@ const Dashboard = ({ user }) => {
             className="mt-4 bg-blue-500 text-white p-2 rounded"
           >
             Volver al Tablero
+            
           </button>
         </div>
       ) : (

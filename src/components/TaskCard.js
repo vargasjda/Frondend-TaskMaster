@@ -41,6 +41,7 @@ const TaskCard = ({ task, updateTaskStatus, deleteTask }) => {
     </div>
   );
   
-};
+}; 
+
 
 export default TaskCard;

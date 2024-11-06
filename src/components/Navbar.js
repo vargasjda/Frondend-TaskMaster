@@ -29,6 +29,7 @@ const Navbar = ({ userName, onLogout }) => {
         {userName}
       </span>
     </nav>
+    
   );
 };
 

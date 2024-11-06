@@ -13,4 +13,5 @@ const TaskColumn = ({ status, tasks, updateTaskStatus, deleteTask }) => {
   
 };
 
+
 export default TaskColumn;
